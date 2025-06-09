@@ -1,0 +1,28 @@
+body {
+	background:url("wood-wall.jpg");
+	border:0;
+	padding:0;
+	width:100%;
+	text-align:center;
+}
+
+#lobby {
+	position: absolute;
+	width:1700px;
+	height:3400px;
+	top: 20px;
+	left: 5%;
+
+}
+
+.hole {
+	background: url('peg-hole.png') no-repeat;
+    position: absolute;
+	width:56px;
+	height:63px;
+}
+
+.colourblock {
+	width: 100px;
+	height: 50px;
+}
