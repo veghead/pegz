@@ -37,10 +37,6 @@ body {
 	left: 0px;
 }
 
-textarea {
-	display:none;
-}
-
 #files {
 	display:none;
 	inset:0;
