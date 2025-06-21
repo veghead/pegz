@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 body {
 	background:url("wood-wall.jpg");
 	border:0;
 	padding:0;
 	width:100%;
 	text-align:center;
+	color: #dddddd;
+	font-family: 'Lato', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
 }
 
 #lobby {
@@ -12,7 +15,6 @@ body {
 	height:3400px;
 	top: 20px;
 	left: 120px;
-
 }
 
 .hole {
@@ -33,5 +35,29 @@ body {
 	height:3400px;
 	top: 20px;
 	left: 0px;
+}
 
+textarea {
+	display:none;
+}
+
+#files {
+	display:none;
+	inset:0;
+	position:fixed;
+    margin:auto;
+    padding:50px;
+    background-color:#000000;
+    z-index:10;
+    opacity:0.9;
+	max-width: 500px;
+	max-height: 300px;
+    text-align:center;
+}
+
+button {
+	display:block;
+	margin:5px;
+	padding:5px;
+	width:90px;
 }

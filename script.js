@@ -1,3 +1,6 @@
+/**
+ * Powered by http://vanilla-js.com/
+ */
 
 function boot()
 {
@@ -57,19 +60,25 @@ function boot()
             })
             s += "\n"
         })
-        download("grid", s)
+        download("grid.pgz", s)
+    }
+
+    const upload = (file) => {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var textArea = document.getElementById("importtext");
+            textArea.value = e.target.result;
+        };
+        reader.readAsText(file);
     }
 
     const download = (filename, text) => {
         var element = document.createElement('a');
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         element.setAttribute('download', filename);
-
         element.style.display = 'none';
         document.body.appendChild(element);
-
         element.click();
-
         document.body.removeChild(element);
     }
 
@@ -103,18 +112,32 @@ function boot()
         }
     }
 
+    let c = document.getElementById('controls')
     colours.forEach((val, idx) => {
-        let c = document.getElementById('controls')
-        let col = document.createElement('div')
         c.appendChild(newColour(idx))
     })
-
-    document.getElementById('export').addEventListener('click', (event) => {
+    expBtn = document.createElement('button')
+    expBtn.innerText = 'Export'
+    expBtn.addEventListener('click', (event) => {
         exportGrid()
     })
-    document.getElementById('import').addEventListener('click', (event) => {
-        importGrid(document.getElementById('importtext').value)
-    }) 
+    c.appendChild(expBtn)
+    impBtn = document.createElement('button')
+    impBtn.innerText= 'Import'
+    impBtn.addEventListener('click', (event) => {
+        document.getElementById('files').style.display='block'
+       
+    })
+    c.appendChild(impBtn)
+    document.getElementById('importfile').addEventListener('change', function(e) {
+        document.getElementById('files').style.display='none'
+        if (e.target.files[0]) {
+            upload(e.target.files[0])
+            importGrid(document.getElementById('importtext').value)
+        }
+    })
+    document.getElementById('files').addEventListener('click', function(event) {
+        document.getElementById('files').style.display='none'
+    })
 }
-
 
